@@ -18,6 +18,7 @@ class XMLStreamWriter extends XMLWriter {
 		$data = explode("\n", html_entity_decode($node->asXML()), 2)[1];
 		$this->writeRaw($data);
 		$this->dataCounter += mb_strlen($data, '8bit');
+		
 		if($this->dataCounter < 16384)
 			return;
 		
